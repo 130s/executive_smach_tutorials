@@ -15,7 +15,9 @@ Output:
 
 """
 
+import rospy
 import smach
+import smach_ros
 
 class ExampleState(smach.State):
     def __init__(self):
@@ -24,6 +26,8 @@ class ExampleState(smach.State):
         return 'done'
 
 def main():
+    rospy.init_node('smach_example_state_machine')
+
     # Create a SMACH state machine
     sm = smach.StateMachine(outcomes=['succeeded','aborted'])
 
